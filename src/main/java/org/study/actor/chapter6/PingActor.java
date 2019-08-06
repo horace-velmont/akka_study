@@ -1,7 +1,5 @@
 package org.study.actor.chapter6;
 
-import org.study.actor.chapter5.Ping1Actor;
-
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.actor.UntypedActor;
@@ -15,7 +13,7 @@ public class PingActor extends UntypedActor {
 	
 	public PingActor() {
 		childRouter = getContext().actorOf(new RoundRobinPool(5).props(
-				Props.create(Ping1Actor::new)), "ping1Actor");
+				Props.create(Ping1Actor.class)), "ping1Actor");
 	}
 	
 	@Override
