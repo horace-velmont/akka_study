@@ -19,7 +19,7 @@ public class BlockingActor extends UntypedActor {
 	private final ExecutionContext ec = context().system().dispatcher();
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) throws Exception {
 		if (message instanceof Integer) {
 			Future<Object> future = Patterns.ask(child, message, timeout);
 			Integer result = (Integer) Await.result(future, timeout.duration());

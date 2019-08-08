@@ -19,11 +19,10 @@ public class NonblockingActor extends UntypedActor {
 	private final ExecutionContext ec = context().system().dispatcher();
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) {
 		if (message instanceof Integer) {
 			Future<Object> future = Patterns.ask(child, message, timeout);
 			
-			// onComplete는 blocking 동작이 아니다.
 			future.onComplete(new SayComplete<Object>(), ec);
 		} else if (message instanceof String) {
 			log.info("NonblockingActor received a message : " + message);

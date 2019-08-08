@@ -8,7 +8,7 @@ public class Ping1Actor extends UntypedActor {
 	private LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) throws Exception {
 		if (message instanceof Integer) {
 			Integer msg = (Integer) message;
 			log.info("Ping1Actor({}) received {}", hashCode(), msg);

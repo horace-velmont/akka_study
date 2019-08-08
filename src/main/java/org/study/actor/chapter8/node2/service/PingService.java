@@ -1,26 +1,22 @@
-package org.study.actor;
+package org.study.actor.chapter8.node2.service;
 
 import akka.actor.UntypedActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
-public class Ping3Actor extends UntypedActor {
+public class PingService extends UntypedActor {
+	
 	private LoggingAdapter log = Logging.getLogger(getContext().system(), this);
+	private int count = 0;
 	
 	@Override
 	public void onReceive(Object message) throws Exception {
 		if (message instanceof String) {
 			String msg = (String) message;
-			if ("work".equals(msg)) {
-				log.info("Ping3 received {}", msg);
-				work();
-				getSender().tell("done", getSelf());
-			}
+			getSender().tell("PING: " + count++, getSelf());
+		} else {
+			unhandled(message);
 		}
 	}
 	
-	private void work() throws Exception {
-		Thread.sleep(1000);
-		log.info("Ping3 working...");
-	}
 }

@@ -17,7 +17,7 @@ public class PingActor extends UntypedActor {
 	}
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message)  {
 		if (message instanceof String) {
 			for (int i = 0; i < 10; i++) {
 				childRouter.tell(i, getSelf());

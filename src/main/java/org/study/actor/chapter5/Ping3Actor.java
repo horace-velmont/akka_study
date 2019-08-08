@@ -8,7 +8,7 @@ public class Ping3Actor extends UntypedActor {
 	private LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) throws Exception {
 		if (message instanceof String) {
 			String msg = (String) message;
 			log.info("Ping3 received {}", msg);

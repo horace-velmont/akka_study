@@ -8,7 +8,7 @@ public class CalculationActor extends UntypedActor {
 	private LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) throws Exception {
 		if (message instanceof String) {
 			Integer msg = (Integer) message;
 			log.info("CalculationActor received {}", msg);

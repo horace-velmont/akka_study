@@ -8,7 +8,7 @@ public class Ping2Actor extends UntypedActor {
 	private LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) throws InterruptedException {
 		if (message instanceof String) {
 			String msg = (String) message;
 			log.info("Ping2 received {}", msg);
@@ -17,7 +17,7 @@ public class Ping2Actor extends UntypedActor {
 		}
 	}
 	
-	private void work() throws Exception {
+	private void work() throws InterruptedException {
 		Thread.sleep(1000);
 		log.info("Ping2 working...");
 	}

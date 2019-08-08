@@ -16,7 +16,7 @@ public class PingActor extends UntypedActor {
 	}
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) {
 		if (message instanceof String) {
 			String msg = (String) message;
 			if ("work".equals(msg)) {

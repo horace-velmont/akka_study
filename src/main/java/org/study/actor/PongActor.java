@@ -14,7 +14,7 @@ public class PongActor extends UntypedActor {
 	}
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) throws InterruptedException {
 		if (message instanceof String) {
 			String msg = (String) message;
 			log.info("Pong received {}", msg);

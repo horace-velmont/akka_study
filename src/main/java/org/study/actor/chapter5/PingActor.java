@@ -19,7 +19,7 @@ public class PingActor extends UntypedActorWithStash {
 	}
 	
 	@Override
-	public void onReceive(Object message) throws Throwable {
+	public void onReceive(Object message) {
 	
 	}
 	
